@@ -23,7 +23,7 @@ public class MortgageCalculator {
         float annualInterest = (float) MortgageUtils.inputValidator(0, 30, "Annual Interest", scanner);
         byte period = (byte) MortgageUtils.inputValidator(1, 30, "Period", scanner);
         double mortgage = calculateMortgage(principal, annualInterest, period);
-        String monthlyPayments = NumberFormat.getCurrencyInstance(Locale.of("en", "PH")).format(mortgageggit);
+        String monthlyPayments = NumberFormat.getCurrencyInstance(Locale.of("en", "PH")).format(mortgage);
 
         return "Monthly Payment: " + monthlyPayments;
     }
