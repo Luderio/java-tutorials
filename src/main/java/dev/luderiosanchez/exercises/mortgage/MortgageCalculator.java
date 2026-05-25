@@ -6,14 +6,14 @@ import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class MortgageCalculator {
-    private static double calculateMortgage(double principal, float annualInterest, byte period) {
+    private static String calculateMortgage(double principal, float annualInterest, byte period) {
         final byte MONTHS_IN_A_YEAR = 12;
         final byte PERCENT = 100;
 
        double monthlyInterest = (annualInterest / PERCENT) / MONTHS_IN_A_YEAR;
        int numberOfPayments = period * MONTHS_IN_A_YEAR;
-
-       return principal * (monthlyInterest * Math.pow((1 + monthlyInterest), numberOfPayments)) / (Math.pow((1 + monthlyInterest), numberOfPayments) - 1);
+       double mortgage = principal * (monthlyInterest * Math.pow((1 + monthlyInterest), numberOfPayments)) / (Math.pow((1 + monthlyInterest), numberOfPayments) - 1);
+       return NumberFormat.getCurrencyInstance(Locale.of("en", "PH")).format(mortgage);
     }
 
     public static String getMortgage() {
@@ -25,11 +25,13 @@ public class MortgageCalculator {
         float annualInterest = (float) MortgageUtils.inputValidator(0, 30, "Annual Interest", scanner);
         byte period = (byte) MortgageUtils.inputValidator(1, 30, "Period (in years)", scanner);
 
-        double mortgage = calculateMortgage(principal, annualInterest, period);
+        String monthlyPayments = calculateMortgage(principal, annualInterest, period);
         StringBuilder paymentSchedule = getPaymentSchedule(principal, annualInterest, period);
         return "Monthly Payments: "
-                + NumberFormat.getCurrencyInstance(Locale.of("en", "PH")).format(mortgage) + "\n"
-                + "Payment Schedule \n" + "------------------------------------ \n" + paymentSchedule;
+                + monthlyPayments + "\n"
+                + "Payment Schedule \n"
+                + "------------------------------------ \n"
+                + paymentSchedule;
     }
 
     private static StringBuilder getPaymentSchedule(double principal, float annualInterest, byte period) {
@@ -59,8 +61,8 @@ public class MortgageCalculator {
 
         }
 
-        for (String payment : paymentSchedule) {
-            result.append(payment).append("\n");
+        for (int i = 0; i < paymentSchedule.toArray().length; i++) {
+            result.append("payment ").append(i + 1).append(": ").append(paymentSchedule.toArray()[i]).append("\n");
         }
 
         return result;
