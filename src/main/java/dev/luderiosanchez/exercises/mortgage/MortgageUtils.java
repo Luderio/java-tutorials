@@ -33,12 +33,13 @@ public class MortgageUtils {
                         return period;
                     }
                 default:
-                    log(LogType.WARNING, null, "Enter a value between" + min + " and " + max + ".");
+                    log(LogType.WARNING, "Enter a value between" + min + " and " + max + ".");
             }
         }
     }
     public static void log(LogType type, Object data, String message) {
         String output = "[" + type.name() + "] " + message + ".";
+
         if (data != null) {
             output = "[" + type.name() + "] " + message + " " + data.toString() + ".";
         }
