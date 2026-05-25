@@ -38,20 +38,17 @@ public class MortgageUtils {
         }
     }
     public static void log(LogType type, Object data, String message) {
+        String output = "[" + type.name() + "] " + message + ".";
+        if (data != null) {
+            output = "[" + type.name() + "] " + message + " " + data.toString() + ".";
+        }
+
         switch (type) {
             case INFO, WARNING:
-                if (data == null) {
-                    System.out.println("[" + type.name() + "] " + message + ".");
-                } else {
-                    System.out.println("[" + type.name() + "] " + message + " " + data.toString() + ".");
-                }
+                System.out.println(output);
                 break;
             case ERROR:
-                if (data == null) {
-                    throw new RuntimeException("[" + type.name() + "] " + message + ".");
-                } else {
-                    throw new RuntimeException("[" + type.name() + "] " + message + " " + data.toString() + ".");
-                }
+                throw new RuntimeException(output);
             default:
                 System.out.println("The provided log type is invalid!");
         }
