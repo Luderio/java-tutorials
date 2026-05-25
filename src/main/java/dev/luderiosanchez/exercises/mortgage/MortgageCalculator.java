@@ -16,7 +16,7 @@ public class MortgageCalculator {
        return principal * (monthlyInterest * Math.pow((1 + monthlyInterest), numberOfPayments)) / (Math.pow((1 + monthlyInterest), numberOfPayments) - 1);
     }
 
-    public static String getMonthlyPayments() {
+    public static String getMortgage() {
         System.out.println("Mortgage Calculator");
         System.out.println("------------------------------------");
         Scanner scanner = new Scanner(System.in);
@@ -32,14 +32,16 @@ public class MortgageCalculator {
                 + "Payment Schedule \n" + "------------------------------------ \n" + paymentSchedule;
     }
 
-    public static StringBuilder getPaymentSchedule(double principal, float annualInterest, byte period) {
-        /** formula: B = L[(1+c)^n - (1+c)^p]/[(1+c)^n-1]
+    private static StringBuilder getPaymentSchedule(double principal, float annualInterest, byte period) {
+        /**
+         * formula: B = L[(1+c)^n - (1+c)^p]/[(1+c)^n-1]
+         * where:
          * B = Loan Balance
          * L = Loan amount/Principal
          * c = monthly interest
          * n = number of payments
          * p = number of payments made/paid
-         * **/
+         **/
 
         final byte MONTHS_IN_A_YEAR = 12;
         final byte PERCENT = 100;
