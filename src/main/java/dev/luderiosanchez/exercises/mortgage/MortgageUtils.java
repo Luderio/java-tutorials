@@ -3,6 +3,7 @@ package dev.luderiosanchez.exercises.mortgage;
 import java.util.Scanner;
 
 public class MortgageUtils {
+    public enum LogType {INFO, WARNING, ERROR}
     public static Number inputValidator(int min, int max, String fieldName, Scanner scanner) {
         while (true) {
             System.out.print(fieldName + ": ");
@@ -10,7 +11,7 @@ public class MortgageUtils {
                 case "Principal":
                     double principal = scanner.nextDouble();
                     if (principal < min || principal > max) {
-                        System.out.println("Enter an amount between " + min + " and " + max + ".");
+                        log(LogType.WARNING,"Enter an amount between " + min + " and " + max + ".");
                         continue;
                     } else {
                         return principal;
@@ -18,7 +19,7 @@ public class MortgageUtils {
                 case "Annual Interest":
                     float annualInterest = scanner.nextFloat();
                     if (annualInterest <= min || annualInterest > max) {
-                        System.out.println("Enter a value greater than " + min + " and less than or equal to " + max + ".");
+                        log(LogType.WARNING, "Enter a value greater than " + min + " and less than or equal to " + max + ".");
                         continue;
                     } else {
                         return annualInterest;
@@ -26,14 +27,47 @@ public class MortgageUtils {
                 case "Period":
                     byte period = scanner.nextByte();
                     if (period < min || period > max) {
-                        System.out.println("Enter a value between " + min + " and " + max + ".");
+                        log(LogType.WARNING, "Enter a value between" + min + " and " + max + ".");
                         continue;
                     } else {
                         return period;
                     }
                 default:
-                    System.out.println("Field Name is incorrect!");
+                    log(LogType.WARNING, null, "Enter a value between" + min + " and " + max + ".");
             }
+        }
+    }
+    public static void log(LogType type, Object data, String message) {
+        switch (type) {
+            case INFO, WARNING:
+                if (data == null) {
+                    System.out.println("[" + type.name() + "] " + message + ".");
+                } else {
+                    System.out.println("[" + type.name() + "] " + message + " " + data.toString() + ".");
+                }
+                break;
+            case ERROR:
+                if (data == null) {
+                    throw new RuntimeException("[" + type.name() + "] " + message + ".");
+                } else {
+                    throw new RuntimeException("[" + type.name() + "] " + message + " " + data.toString() + ".");
+                }
+            default:
+                System.out.println("The provided log type is invalid!");
+        }
+    }
+
+    public static void log(LogType type, String message) {
+        String outputWithoutData = "[" + type.name() + "] " + message;
+
+        switch (type) {
+            case INFO, WARNING:
+                System.out.println(outputWithoutData);
+                break;
+            case ERROR:
+                throw new RuntimeException(outputWithoutData);
+            default:
+                System.out.println("The provided log type is invalid!");
         }
     }
 }
