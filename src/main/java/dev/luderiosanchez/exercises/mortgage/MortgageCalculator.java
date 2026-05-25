@@ -21,7 +21,7 @@ public class MortgageCalculator {
 
         double principal = (double) MortgageUtils.inputValidator(1_000, 1_000_000, "Principal", scanner);
         float annualInterest = (float) MortgageUtils.inputValidator(0, 30, "Annual Interest", scanner);
-        byte period = (byte) MortgageUtils.inputValidator(1, 30, "Period", scanner);
+        byte period = (byte) MortgageUtils.inputValidator(1, 30, "Period (in years)", scanner);
         double mortgage = calculateMortgage(principal, annualInterest, period);
         String monthlyPayments = NumberFormat.getCurrencyInstance(Locale.of("en", "PH")).format(mortgage);
 

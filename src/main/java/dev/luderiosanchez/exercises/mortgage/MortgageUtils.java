@@ -24,7 +24,7 @@ public class MortgageUtils {
                     } else {
                         return annualInterest;
                     }
-                case "Period":
+                case "Period (in years)":
                     byte period = scanner.nextByte();
                     if (period < min || period > max) {
                         log(LogType.WARNING, "Enter a value between" + min + " and " + max + ".");
