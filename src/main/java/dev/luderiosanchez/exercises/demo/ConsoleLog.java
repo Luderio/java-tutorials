@@ -1,32 +1,34 @@
 package dev.luderiosanchez.exercises.demo;
 
 public class ConsoleLog implements Logger{
-    @Override
-    public void info(LogType type, String message, Object data) {
-        System.out.println(formatMessage(type, message, data));
-    }
-
-    public void info(LogType type, String message) {
-        System.out.println(formatMessage(type, message));
-    }
-
+    public enum LogType {INFO, WARNING, ERROR};
 
     @Override
-    public void warning(LogType type, String message, Object data) {
-        System.out.println(formatMessage(type, message, data));
+    public void info(String message, Object data) {
+        System.out.println(formatMessage(LogType.INFO, message, data));
     }
 
-    public void warning(LogType type, String message) {
-        System.out.println(formatMessage(type, message));
+    public void info(String message) {
+        System.out.println(formatMessage(LogType.INFO, message));
+    }
+
+
+    @Override
+    public void warning(String message, Object data) {
+        System.out.println(formatMessage(LogType.WARNING, message, data));
+    }
+
+    public void warning(String message) {
+        System.out.println(formatMessage(LogType.WARNING, message));
     }
 
     @Override
-    public void error(LogType type, String message, Object data) {
-        throw new RuntimeException(formatMessage(type, message, data));
+    public void error(String message, Object data) {
+        throw new RuntimeException(formatMessage(LogType.ERROR, message, data));
     }
 
-    public void error(LogType type, String message) {
-        throw new RuntimeException(formatMessage(type, message));
+    public void error(String message) {
+        throw new RuntimeException(formatMessage(LogType.ERROR, message));
     }
 
     private static String formatMessage(LogType type, String message, Object data) {
