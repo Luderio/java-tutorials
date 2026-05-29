@@ -1,6 +1,6 @@
 package dev.luderiosanchez.exercises.demo;
 
-public class Log implements Logger{
+public class ConsoleLog implements Logger{
     @Override
     public void info(LogType type, String message, Object data) {
         System.out.println(formatMessage(type, message, data));
