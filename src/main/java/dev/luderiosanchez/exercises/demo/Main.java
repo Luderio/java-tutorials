@@ -10,6 +10,6 @@ public class Main {
        employee1.setBaseSalary(68686);
        employee1.setHourlyRate(30);
        int wage = employee1.calculateWage(8);
-        log.info("The Employee's salary is: " + wage);
+        log.info("The Employee's salary is: " + wage, wage);
     }
 }
