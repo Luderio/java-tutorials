@@ -3,10 +3,10 @@ package dev.luderiosanchez.exercises.demo;
 
 public class Main {
     public static void main(String[] args) {
-      Point point1 = new Point(1, 2);
-      Point point2 = new Point(1, 2);
+        UIControl[] controls = { new TextBox(), new CheckBox() };
 
-        System.out.println(point1.hashCode());
-        System.out.println(point2.hashCode());
+        for (var control: controls) {
+            control.render();
+        }
     }
 }
