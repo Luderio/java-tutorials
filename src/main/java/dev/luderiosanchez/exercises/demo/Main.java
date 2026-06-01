@@ -2,13 +2,11 @@ package dev.luderiosanchez.exercises.demo;
 
 
 public class Main {
-    private static final ConsoleLog log = new ConsoleLog();
-
-
     public static void main(String[] args) {
-      var textBox = new TextBox();
-      textBox.setText("hello chezzy");
-      System.out.println(textBox.toUpperCase());
-      System.out.println(textBox.clear());
+      Point point1 = new Point(1, 2);
+      Point point2 = new Point(1, 2);
+
+        System.out.println(point1.hashCode());
+        System.out.println(point2.hashCode());
     }
 }
