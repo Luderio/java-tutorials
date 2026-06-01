@@ -6,14 +6,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-       var employee1 = new Employee(68686, 30, 10);
-       int wage1 = employee1.calculateWage(20);
-
-        var employee2 = new Employee(68686);
-        int wage2 = employee2.calculateWage();
-
-       log.info("The Employee1 salary is: " + wage1);
-       log.info("The Employee2 salary is: " + wage2);
-       log.info("Total Number of Employees: " + Employee.getNumberOfEmployees());
+      var textBox = new TextBox();
+      textBox.setText("hello chezzy");
+      System.out.println(textBox.toUpperCase());
     }
 }
