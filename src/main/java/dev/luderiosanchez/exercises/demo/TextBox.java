@@ -21,6 +21,10 @@ public class TextBox extends UIControl{
         return text.toLowerCase();
     }
 
+    public String clear() {
+        return text = "";
+    }
+
     public String getText() {
         return text;
     }

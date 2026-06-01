@@ -9,5 +9,6 @@ public class Main {
       var textBox = new TextBox();
       textBox.setText("hello chezzy");
       System.out.println(textBox.toUpperCase());
+      System.out.println(textBox.clear());
     }
 }
