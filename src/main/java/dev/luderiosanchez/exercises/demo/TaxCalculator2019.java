@@ -1,10 +1,10 @@
 package dev.luderiosanchez.exercises.demo;
 
-public class TaxCalculator2018 implements TaxCalculator {
+public class TaxCalculator2019 implements TaxCalculator {
     private final double taxableIncome;
-    private final double taxRate = 0.3;
+    private final double taxRate = 0.4;
 
-    public TaxCalculator2018(double taxableIncome) {
+    public TaxCalculator2019(double taxableIncome) {
         this.taxableIncome = taxableIncome;
     }
 
@@ -14,7 +14,5 @@ public class TaxCalculator2018 implements TaxCalculator {
         return taxableIncome * taxRate;
     }
 
-    public double getTaxableIncome() {
-        return taxableIncome;
-    }
+
 }
