@@ -11,8 +11,7 @@ public class ExceptionsDemo {
             account.deposit(5);
             account.withdraw(10);
         } catch (AccountException e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
+            System.out.println(e.getCause().getMessage());
         }
     }
 
