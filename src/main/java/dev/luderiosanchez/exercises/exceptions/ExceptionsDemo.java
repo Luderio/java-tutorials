@@ -10,8 +10,9 @@ public class ExceptionsDemo {
         try {
             account.deposit(5);
             account.withdraw(10);
-        } catch (InsufficientFundsException e) {
+        } catch (AccountException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 

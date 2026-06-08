@@ -6,18 +6,18 @@ public class Account {
 
     private float balance;
 
-    public void deposit(float value) throws InsufficientFundsException {
+    public void deposit(float value) throws AccountException {
         if (value <= 0) {
-            throw new InsufficientFundsException("Error: Deposits to the amount of: " + value + " is not allowed.");
+            throw new AccountException(new InsufficientFundsException("Error: Deposits to the amount of: " + value + " is not allowed."));
         }
         else {
             setBalance(value);
         }
     }
 
-    public void withdraw(float value) throws InsufficientFundsException {
+    public void withdraw(float value) throws AccountException {
         if (value > balance) {
-            throw new InsufficientFundsException("Insufficient Funds: You only have: " + balance + " balance in your account.");
+            throw new AccountException(new InsufficientFundsException("Insufficient Funds: You only have: " + balance + " balance in your account."));
         }
     }
 
