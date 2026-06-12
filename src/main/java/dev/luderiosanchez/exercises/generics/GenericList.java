@@ -1,14 +1,19 @@
 package dev.luderiosanchez.exercises.generics;
 
-public class GenericList<T> {
-    private T[] items = (T[]) new Object[10];
+public class GenericList<Type> {
+    private final Object[] items;
     private int count;
 
-    public void add(T item) {
+    public GenericList(int size) {
+        this.items = new Object[size];
+    }
+
+    public void add(Type item) {
         items[count++] = item;
     }
 
-    public T get(int index) {
-        return items[index];
+    @SuppressWarnings("unchecked")
+    public Type get(int index) {
+        return (Type) items[index];
     }
 }
