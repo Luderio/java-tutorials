@@ -5,5 +5,7 @@ public class Main {
         var bigger = Utils.max(new User(5), new User(10));
         System.out.println(bigger);
 
+        var obj = new KeyValuePair<String, String>("Name", "Luderio");
+        obj.print();
     }
 }
