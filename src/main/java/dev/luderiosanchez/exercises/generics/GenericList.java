@@ -1,6 +1,6 @@
 package dev.luderiosanchez.exercises.generics;
 
-public class GenericList<Type> {
+public class GenericList<Type extends Number> {
     private final Object[] items;
     private int count;
 
