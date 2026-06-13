@@ -23,10 +23,6 @@ public class GenericList<Type> implements Iterable<Type>{
         return (Type) items[index];
     }
 
-    public int getCount() {
-        return count;
-    }
-
     @Override
     public Iterator<Type> iterator() {
         return new ListIterator(this);
