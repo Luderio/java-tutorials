@@ -13,7 +13,7 @@ public class Utils {
         System.out.println(user);
     }
 
-    public static void printUsers(GenericList<? extends User> users) {
+    public static void printUsers(GenericList<?> users) {
         for (int i = 0; i < users.getCount(); i++) {
             System.out.println(users.get(i));
         }
