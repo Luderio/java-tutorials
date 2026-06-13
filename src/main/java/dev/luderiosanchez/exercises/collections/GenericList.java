@@ -29,7 +29,7 @@ public class GenericList<Type> implements Iterable<Type>{
     }
 
     private class ListIterator implements Iterator<Type> {
-        private GenericList<Type> list;
+        private final GenericList<Type> list;
         private int index;
 
         public ListIterator(GenericList<Type> list) {
