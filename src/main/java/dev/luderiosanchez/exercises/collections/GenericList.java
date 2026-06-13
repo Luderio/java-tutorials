@@ -44,6 +44,7 @@ public class GenericList<Type> implements Iterable<Type>{
         public boolean hasNext() {
             return (index < list.count);
         }
+
         @SuppressWarnings("unchecked")
         @Override
         public Type next() {
