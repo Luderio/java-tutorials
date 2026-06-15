@@ -1,5 +1,7 @@
 package dev.luderiosanchez.exercises.iterable;
 
+import java.util.Iterator;
+
 public class Main {
     public static void main(String[] args) {
         GenericList<String> list = new GenericList<>(3);
@@ -15,7 +17,7 @@ public class Main {
         }
 
         System.out.println("\n\n");
-        var iterator = list.iterator();
+        Iterator<String> iterator = list.iterator();
         while(iterator.hasNext()) {
             var current = iterator.next();
             System.out.println(current);
