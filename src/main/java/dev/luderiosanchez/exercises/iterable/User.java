@@ -1,4 +1,4 @@
-package dev.luderiosanchez.exercises.collections;
+package dev.luderiosanchez.exercises.iterable;
 
 public class User implements Comparable<User> {
     private int points;

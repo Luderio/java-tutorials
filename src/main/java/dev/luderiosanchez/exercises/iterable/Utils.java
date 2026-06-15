@@ -1,6 +1,4 @@
-package dev.luderiosanchez.exercises.collections;
-
-import dev.luderiosanchez.exercises.collections.GenericList;
+package dev.luderiosanchez.exercises.iterable;
 
 public class Utils {
     public static <T extends Comparable<T>> T max(T first, T second) {

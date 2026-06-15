@@ -1,4 +1,4 @@
-package dev.luderiosanchez.exercises.collections;
+package dev.luderiosanchez.exercises.iterable;
 
 public class KeyValuePair <Key, Value>{
     private Key key;
