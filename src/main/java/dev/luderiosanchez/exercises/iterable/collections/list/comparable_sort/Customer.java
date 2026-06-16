@@ -1,4 +1,4 @@
-package dev.luderiosanchez.exercises.collections.comparable_sort;
+package dev.luderiosanchez.exercises.iterable.collections.list.comparable_sort;
 
 public class Customer implements Comparable<Customer>{
     private String name;

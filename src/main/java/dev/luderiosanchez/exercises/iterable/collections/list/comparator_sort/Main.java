@@ -1,4 +1,4 @@
-package dev.luderiosanchez.exercises.collections.comparator_sort;
+package dev.luderiosanchez.exercises.iterable.collections.list.comparator_sort;
 
 import java.util.ArrayList;
 import java.util.Collections;

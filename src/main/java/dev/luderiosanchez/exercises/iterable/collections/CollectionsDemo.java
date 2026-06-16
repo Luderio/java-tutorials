@@ -1,4 +1,4 @@
-package dev.luderiosanchez.exercises.collections;
+package dev.luderiosanchez.exercises.iterable.collections;
 
 import java.util.ArrayList;
 import java.util.Collection;
