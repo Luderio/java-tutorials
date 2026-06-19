@@ -3,14 +3,14 @@ package dev.luderiosanchez.exercises.lambdas;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class LambdasDemo {
     public static void show() {
-        Function<String, String> replaceColon = str -> str.replace(",", ": ");
-        Function<String, String> addBraces = str -> "{ " + str + " }";
+        Predicate<String> isLongerThan5 = str -> str.length() > 5;
+        var result = isLongerThan5.test("Sky");
 
-        var result = replaceColon.andThen(addBraces).apply("Name,Luderio Sanchez");
         System.out.println(result);
     }
 
