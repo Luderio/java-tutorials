@@ -5,10 +5,10 @@ import java.util.function.*;
 
 public class LambdasDemo {
     public static void show() {
-        BinaryOperator<Integer> add = (a, b) -> a + b;;
-        Function<Integer, Integer> squared = x -> x * x;
+       UnaryOperator<Integer> square = x -> x * x;
+       UnaryOperator<Integer> increment = x -> x + 1;
 
-        var result = add.andThen(squared).apply(2, 5);
+        var result = increment.andThen(square).apply(1);
         System.out.println(result);
     }
 
