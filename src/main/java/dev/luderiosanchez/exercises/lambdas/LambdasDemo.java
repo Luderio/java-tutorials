@@ -1,16 +1,17 @@
 package dev.luderiosanchez.exercises.lambdas;
 
+import java.util.List;
+import java.util.function.Consumer;
+
 public class LambdasDemo {
     public static void show() {
-        greet(new Printer() {
-            @Override
-            public void print(String message) {
-                System.out.println(message);
-            }
-        });
+        List<String> list = List.of("Chezzy", "Ian", "Hero");
+
+        Consumer<String> print = item -> System.out.println(item);
+        Consumer<String> printUpperCase = item -> System.out.println(item.toUpperCase());
+        list.forEach(print.andThen(printUpperCase).andThen(print));
+
     }
 
-    public static void greet(Printer printer) {
-        printer.print("Hello World!");
-    }
+
 }
