@@ -7,8 +7,11 @@ import java.util.function.Supplier;
 
 public class LambdasDemo {
     public static void show() {
-        Function<String, Integer> map = str -> str.length();
-        System.out.println(map.apply("Chezzy"));
+        Function<String, String> replaceColon = str -> str.replace(",", ": ");
+        Function<String, String> addBraces = str -> "{ " + str + " }";
+
+        var result = replaceColon.andThen(addBraces).apply("Name,Luderio Sanchez");
+        System.out.println(result);
     }
 
 
