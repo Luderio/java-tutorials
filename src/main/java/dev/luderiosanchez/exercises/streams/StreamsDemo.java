@@ -7,10 +7,10 @@ public class StreamsDemo {
         List<Movie> movies = List.of(
                 new Movie("Teach you a Lesson", 100),
                 new Movie("Dr. Stone", 50),
-                new Movie("Wistoria", 80)
+                new Movie("Wistoria", 80),
+                new Movie("Bon Apettite, your Majesty", 80)
         );
 
-        var count = movies.stream().filter(movie -> movie.getLikes() > 10).count();
-        System.out.println(count);
+        movies.stream().map(Movie::getTitle).forEach(System.out::println);
     }
 }
