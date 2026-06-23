@@ -11,6 +11,6 @@ public class StreamsDemo {
                 new Movie("Bon Apettite, your Majesty", 80)
         );
 
-        movies.stream().map(Movie::getTitle).forEach(System.out::println);
+        movies.stream().mapToInt(Movie::getLikes).forEach(System.out::println);
     }
 }
