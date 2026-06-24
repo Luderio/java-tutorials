@@ -13,9 +13,7 @@ public class StreamsDemo {
                 new Movie("World War II: From the Front Lines", 40)
         );
 
-        movies.stream()
-                .map(Movie::getLikes)
-                .distinct()
-                .forEach(System.out::println);
+        var result = movies.stream().anyMatch(movie -> movie.getLikes() < 100);
+        System.out.println(result);
     }
 }
