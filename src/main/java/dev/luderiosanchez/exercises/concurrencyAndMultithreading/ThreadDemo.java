@@ -1,20 +1,29 @@
 package dev.luderiosanchez.exercises.concurrencyAndMultithreading;
 
-import dev.luderiosanchez.exercises.DownloadFileTask;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ThreadDemo {
     public static void  show() {
-        System.out.println("current thread: " + Thread.currentThread().getName());
+        var status = new DownloadStatus();
 
-        Thread thread = new Thread(new DownloadFileTask());
-        thread.start();
+        List<Thread> threads = new ArrayList<>();
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        for (int i = 0; i < 10; i++) {
+            Thread thread = new Thread(new DownloadFileTask("File " + i, status));
+            thread.start();
+            threads.add(thread);
+
         }
-        thread.interrupt();
-        System.out.println("File is ready to be scanned.");
+
+        for(var thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                throw  new RuntimeException(e);
+            }
+        }
+
+        System.out.println(status.getTotalBytes());
     }
 }
