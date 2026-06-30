@@ -1,4 +1,4 @@
-package dev.luderiosanchez.exercises.concurrencyAndMultithreading;
+package dev.luderiosanchez.exercises.concurrencyAndMultithreading.confinement;
 
 public class DownloadStatus {
     private int totalBytes;

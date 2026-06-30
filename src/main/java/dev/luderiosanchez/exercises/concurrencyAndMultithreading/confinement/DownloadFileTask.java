@@ -1,4 +1,4 @@
-package dev.luderiosanchez.exercises.concurrencyAndMultithreading;
+package dev.luderiosanchez.exercises.concurrencyAndMultithreading.confinement;
 
 public class DownloadFileTask implements Runnable {
     private final String fileName;

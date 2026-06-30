@@ -1,4 +1,4 @@
-package dev.luderiosanchez.exercises.concurrencyAndMultithreading;
+package dev.luderiosanchez.exercises.concurrencyAndMultithreading.synchronization;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,13 +7,10 @@ public class ThreadDemo {
     public static void  show() {
 
         List<Thread> threads = new ArrayList<>();
-        List<DownloadFileTask> tasks = new ArrayList<>();
+        var status = new DownloadStatus();
 
         for (int i = 0; i < 10; i++) {
-            var task = new DownloadFileTask("File " + i);
-            tasks.add(task);
-
-            Thread thread = new Thread(task);
+            Thread thread = new Thread(new DownloadFileTask("File " + i, status));
             thread.start();
             threads.add(thread);
 
@@ -27,8 +24,7 @@ public class ThreadDemo {
             }
         }
 
-        var totalBytes = tasks.stream().map(task -> task.getStatus().getTotalBytes()).reduce(0, Integer::sum);
 
-        System.out.println(totalBytes);
+        System.out.println(status.getTotalBytes());
     }
 }
