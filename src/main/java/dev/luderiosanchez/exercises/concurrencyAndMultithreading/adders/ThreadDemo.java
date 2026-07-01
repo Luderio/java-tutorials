@@ -1,7 +1,7 @@
 package dev.luderiosanchez.exercises.concurrencyAndMultithreading.adders;
 
-import dev.luderiosanchez.exercises.concurrencyAndMultithreading.synchronization.DownloadFileTask;
-import dev.luderiosanchez.exercises.concurrencyAndMultithreading.synchronization.DownloadStatus;
+import dev.luderiosanchez.exercises.concurrencyAndMultithreading.adders.DownloadFileTask;
+import dev.luderiosanchez.exercises.concurrencyAndMultithreading.adders.DownloadStatus;
 
 import java.util.ArrayList;
 import java.util.List;
