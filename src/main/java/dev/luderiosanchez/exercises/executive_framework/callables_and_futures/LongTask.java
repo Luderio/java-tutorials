@@ -1,4 +1,4 @@
-package dev.luderiosanchez.exercises.executive_framework;
+package dev.luderiosanchez.exercises.executive_framework.callables_and_futures;
 
 public class LongTask {
     public static void simulate() {
