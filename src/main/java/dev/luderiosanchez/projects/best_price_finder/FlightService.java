@@ -1,17 +1,14 @@
 package dev.luderiosanchez.projects.best_price_finder;
 
 import java.text.NumberFormat;
-import java.util.Currency;
 import java.util.Locale;
-import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
-public class Website {
+public class FlightService {
     private final String siteName;
     private final double ticketPrice;
-    private static double totalTime;
 
-    public Website(String siteName) {
+    public FlightService(String siteName) {
         this.siteName = siteName;
         this.ticketPrice = randomNumber(500, 900);
     }
@@ -30,7 +27,6 @@ public class Website {
     }
 
     public CompletableFuture<String> getQuoteAsync() {
-        long start = System.currentTimeMillis();
         System.out.println("Getting a quote from " + siteName);
 
         return CompletableFuture.supplyAsync(() -> {
@@ -40,15 +36,8 @@ public class Website {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            long end = System.currentTimeMillis();
-            totalTime = (end - start);
             return toString();
         });
 
-    }
-
-
-    public static double getTotalTime() {
-        return totalTime;
     }
 }
